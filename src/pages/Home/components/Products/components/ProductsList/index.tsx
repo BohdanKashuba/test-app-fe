@@ -16,6 +16,7 @@ const ProductsList: FC = () => {
     priceStart: filters.price.start,
     rate: filters.rate,
     name: debouncedName,
+    sortBy: filters.sort,
   });
 
   if (isLoading) {

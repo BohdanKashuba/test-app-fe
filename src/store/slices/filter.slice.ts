@@ -5,6 +5,7 @@ const initialState: TFilterInitialState = {
   price: {
     start: 0,
   },
+  sort: "all",
 };
 
 export const filterSlice = createSlice({

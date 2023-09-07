@@ -5,4 +5,5 @@ export type TFilterInitialState = {
   };
   rate?: number;
   name?: string;
+  sort: "all" | "asc" | "desc" | "top-rated";
 };

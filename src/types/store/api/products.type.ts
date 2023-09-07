@@ -3,7 +3,7 @@ export type TGetProducts = Partial<{
   priceEnd: number;
   name: string;
   rate: number;
-  sort: "asc" | "desc" | "top-rated";
+  sortBy: "asc" | "desc" | "top-rated" | "all";
 }>;
 
 export type TProduct = {

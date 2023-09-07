@@ -5,7 +5,7 @@ const Wrapper = styled("ul")`
   grid-template-columns: repeat(auto-fit, 260px);
   grid-gap: 16px;
 
-  padding: 16px;
+  padding: 0;
 `;
 
 const Styled = { Wrapper };
