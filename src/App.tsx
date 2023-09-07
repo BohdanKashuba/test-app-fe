@@ -3,10 +3,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { paths } from "./constants/paths";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import Header from "./components/Header";
 
 const App: FC = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path={paths.home} element={<Home />} />
         <Route path="*" element={<NotFound />} />
