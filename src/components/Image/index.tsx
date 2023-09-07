@@ -1,12 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, ImgHTMLAttributes } from "react";
 
-type TImageProps = {
-  src: string;
-  alt: string;
-};
+type TImageProps = ImgHTMLAttributes<HTMLImageElement>;
 
-const Image: FC<TImageProps> = ({ alt, src }) => {
-  return <img alt={alt} src={src} />;
+const Image: FC<TImageProps> = ({ alt, src, ...rest }) => {
+  return <img alt={alt} src={src} {...rest} />;
 };
 
 export default Image;

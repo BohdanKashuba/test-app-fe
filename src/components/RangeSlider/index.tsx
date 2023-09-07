@@ -26,7 +26,6 @@ const RangeSlider: FC<TRangeSliderProps> = ({
         range
         defaultValue={[0, 100]}
         handleRender={(renderProps, props) => {
-          console.log(props);
           return (
             <div {...renderProps.props}>
               <Styled.TooltipWrapper
@@ -61,11 +60,14 @@ const RangeSlider: FC<TRangeSliderProps> = ({
         }}
         onAfterChange={(vals) => {
           if (Array.isArray(vals)) {
-            onChange(vals);
+            onChange([
+              Math.floor((vals[0] / 100) * max),
+              Math.floor((vals[1] / 100) * max),
+            ]);
           }
         }}
         allowCross={false}
-        pushable={25}
+        pushable={22}
       />
     </Styled.Wrapper>
   );

@@ -5,6 +5,7 @@ const Main = styled("main")`
   max-width: min(1400px, calc(100% - 24px));
 
   margin-inline: auto;
+  margin-top: 52px;
 
   display: grid;
   grid-template-columns: ${SIDEBAR_WIDTH} 1fr;

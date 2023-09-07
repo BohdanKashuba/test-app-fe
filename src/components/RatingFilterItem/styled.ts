@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 const RatingWrapper = styled("button")`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 
   background-color: ${({ theme }) => theme.colors.gray[5]};
 

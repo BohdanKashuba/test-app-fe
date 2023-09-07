@@ -11,7 +11,7 @@ const SearchInput: FC<TSearchInputProps> = ({ onClear, ...rest }) => {
     <Styled.Wrapper>
       <AiOutlineSearch className="search-icon" />
       <Styled.Input {...rest} />
-      <Styled.ClearButton>
+      <Styled.ClearButton onClick={onClear}>
         <AiOutlineClose className="clear-icon" />
       </Styled.ClearButton>
     </Styled.Wrapper>

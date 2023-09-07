@@ -14,7 +14,7 @@ const Wrapper = styled("div")`
   font-size: 20px;
 
   & > .search-icon {
-    color: ${({ theme }) => theme.colors.gray[500]};
+    color: ${({ theme }) => theme.colors.gray[50]};
   }
 `;
 

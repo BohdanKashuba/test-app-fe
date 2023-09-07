@@ -1,18 +1,17 @@
 import React, { FC } from "react";
-import { AiFillStar } from "react-icons/ai";
 import Styled from "./styled";
+import { Rating } from "react-simple-star-rating";
 
 type TRatingFilterItem = {
   count: number;
+  onClick: (val: number) => void;
 };
 
-const RatingFilterItem: FC<TRatingFilterItem> = ({ count }) => {
+const RatingFilterItem: FC<TRatingFilterItem> = ({ count, onClick }) => {
   return (
-    <Styled.RatingWrapper>
+    <Styled.RatingWrapper onClick={() => onClick(count)}>
       <Styled.RatingContainer>
-        {Array.from({ length: count }).map(() => (
-          <AiFillStar color="orange" size={17} />
-        ))}
+        <Rating readonly iconsCount={count} size={17} initialValue={count} />
       </Styled.RatingContainer>
       <Styled.Text>& Up</Styled.Text>
     </Styled.RatingWrapper>
