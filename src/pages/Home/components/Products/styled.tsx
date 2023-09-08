@@ -9,8 +9,13 @@ const Wrapper = styled("section")`
   border-radius: 4px;
 `;
 
+const ChipsWrapper = styled("div")`
+  margin-top: 40px;
+`;
+
 const Styled = {
   Wrapper,
+  ChipsWrapper,
 };
 
 export default Styled;

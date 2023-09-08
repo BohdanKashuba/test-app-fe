@@ -9,14 +9,15 @@ import { useDebounce } from "usehooks-ts";
 const ProductsList: FC = () => {
   const filters = useAppSelector(filterSelector);
 
-  const debouncedName = useDebounce(filters.name, 300);
+  const debouncedKeywords = useDebounce(filters.keywords, 300);
 
   const { data, isLoading } = useGetAllQuery({
     priceEnd: filters.price.end,
     priceStart: filters.price.start,
     rate: filters.rate,
-    name: debouncedName,
+    keywords: debouncedKeywords,
     sortBy: filters.sort,
+    tags: filters.tags,
   });
 
   if (isLoading) {

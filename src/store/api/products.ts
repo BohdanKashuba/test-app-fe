@@ -8,10 +8,22 @@ export const productsApi = createApi({
   }),
   endpoints: (builder) => ({
     getAll: builder.query<TProduct[], TGetProducts>({
-      query: (params?: TGetProducts) => ({
-        url: "/product",
-        params,
-      }),
+      query: (params?: TGetProducts) => {
+        const qs = Object.entries(params ?? {}).reduce((acc, [key, value]) => {
+          if (Array.isArray(value)) {
+            return [...acc, [key + "[]", value]];
+          }
+
+          return [...acc, [key, value]];
+        }, [] as any);
+
+        console.log(Object.fromEntries(qs));
+
+        return {
+          url: "/product",
+          params: Object.fromEntries(qs),
+        };
+      },
     }),
   }),
 });

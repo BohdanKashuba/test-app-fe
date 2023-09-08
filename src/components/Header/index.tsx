@@ -12,11 +12,11 @@ const Header: FC = () => {
   const filters = useAppSelector(filterSelector);
 
   const reset = () => {
-    dispatch(setFilter({ name: "" }));
+    dispatch(setFilter({ keywords: "" }));
   };
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(setFilter({ name: e.target.value }));
+    dispatch(setFilter({ keywords: e.target.value }));
   };
 
   return (
@@ -25,7 +25,11 @@ const Header: FC = () => {
         <Styled.LogoWrapper>
           <Image src={Logo} alt="logo" />
         </Styled.LogoWrapper>
-        <SearchInput onClear={reset} onChange={onChange} value={filters.name} />
+        <SearchInput
+          onClear={reset}
+          onChange={onChange}
+          value={filters.keywords}
+        />
       </Styled.Container>
     </Styled.Wrapper>
   );

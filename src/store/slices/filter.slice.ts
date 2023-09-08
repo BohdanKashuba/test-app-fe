@@ -6,6 +6,7 @@ const initialState: TFilterInitialState = {
     start: 0,
   },
   sort: "all",
+  tags: [],
 };
 
 export const filterSlice = createSlice({

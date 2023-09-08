@@ -4,6 +4,7 @@ export type TFilterInitialState = {
     end?: number;
   };
   rate?: number;
-  name?: string;
+  keywords?: string;
   sort: "all" | "asc" | "desc" | "top-rated";
+  tags: string[];
 };

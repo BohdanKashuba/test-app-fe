@@ -1,9 +1,10 @@
 export type TGetProducts = Partial<{
   priceStart: number;
   priceEnd: number;
-  name: string;
+  keywords: string;
   rate: number;
   sortBy: "asc" | "desc" | "top-rated" | "all";
+  tags: string[];
 }>;
 
 export type TProduct = {
