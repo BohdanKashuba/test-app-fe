@@ -51,12 +51,42 @@ const LoginButton = styled("button")`
   }
 `;
 
+const SignUpButton = styled("button")`
+  background-color: transparent;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  color: ${({ theme }) => theme.colors.basic.white};
+  background-color: ${({ theme }) => theme.colors.primary[70]};
+
+  padding: 8px 16px;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+
+  cursor: pointer;
+
+  transition: color, background 0.25s ease-in;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary[70]};
+    border: 1px solid ${({ theme }) => theme.colors.primary[70]};
+  }
+`;
+
 const Styled = {
   Wrapper,
   Container,
   LogoWrapper,
   ActionsWrapper,
   LoginButton,
+  SignUpButton,
 };
 
 export default Styled;

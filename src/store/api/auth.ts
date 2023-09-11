@@ -1,5 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import { TAuthResponse, TLogin } from "../../types/store/api/auth.type";
+import {
+  TAuthResponse,
+  TLogin,
+  TSignUp,
+} from "../../types/store/api/auth.type";
 import { setUser } from "../slices/user.slice";
 
 export const authApi = createApi({
@@ -12,6 +16,21 @@ export const authApi = createApi({
     login: builder.mutation<TAuthResponse, TLogin>({
       query: (body) => ({
         url: "/login",
+        body,
+        method: "POST",
+      }),
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+
+          dispatch(setUser({ ...data.user, isAuth: true }));
+          localStorage.setItem("access-token", data.accessToken);
+        } catch {}
+      },
+    }),
+    signUp: builder.mutation<TAuthResponse, TSignUp>({
+      query: (body) => ({
+        url: "/sign-up",
         body,
         method: "POST",
       }),
@@ -40,4 +59,4 @@ export const authApi = createApi({
   }),
 });
 
-export const { useLoginMutation, useRefreshQuery } = authApi;
+export const { useLoginMutation, useRefreshQuery, useSignUpMutation } = authApi;

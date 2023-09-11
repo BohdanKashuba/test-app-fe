@@ -5,6 +5,10 @@ export type TLogin = {
   password: string;
 };
 
+export type TSignUp = {
+  name: string;
+} & TLogin;
+
 export type TAuthResponse = {
   user: TUserData;
   accessToken: string;

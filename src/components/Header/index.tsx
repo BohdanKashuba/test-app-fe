@@ -9,16 +9,21 @@ import { filterSelector, userIsAuthSelector } from "../../store/selectors";
 import Modal from "../Modal";
 import LoginForm from "./components/LoginForm";
 import AuthenticatedUser from "./components/AuthenticatedUser";
+import { TAuthMethod } from "../../types/components/header";
+import SignUpForm from "./components/SignUpForm";
 
 const Header: FC = () => {
   const dispatch = useAppDispatch();
   const filters = useAppSelector(filterSelector);
   const isAuth = useAppSelector(userIsAuthSelector);
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<TAuthMethod>();
 
-  const onClose = useCallback(() => setOpen(false), [setOpen]);
-  const onOpen = useCallback(() => setOpen(true), [setOpen]);
+  const onClose = useCallback(() => setOpen(undefined), [setOpen]);
+  const onOpen = useCallback(
+    (method: TAuthMethod) => setOpen(method),
+    [setOpen]
+  );
 
   const reset = () => {
     dispatch(setFilter({ keywords: "" }));
@@ -44,9 +49,14 @@ const Header: FC = () => {
             <AuthenticatedUser />
           ) : (
             <>
-              <Styled.LoginButton onClick={onOpen}>Login</Styled.LoginButton>
-              <Modal open={open} onClose={onClose} title="Login">
-                <LoginForm />
+              <Styled.LoginButton onClick={() => onOpen("login")}>
+                Login
+              </Styled.LoginButton>
+              <Styled.SignUpButton onClick={() => onOpen("sign-up")}>
+                Sign up
+              </Styled.SignUpButton>
+              <Modal open={!!open} onClose={onClose} title="Login">
+                {open === "login" ? <LoginForm /> : <SignUpForm />}
               </Modal>
             </>
           )}
