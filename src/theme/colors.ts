@@ -11,4 +11,11 @@ export const colors = {
     60: "#2979FF",
     70: "#2264D1",
   },
+  basic: {
+    white: "#ffffff",
+    black: "#000000",
+  },
+  error: {
+    60: "#F44336",
+  },
 };

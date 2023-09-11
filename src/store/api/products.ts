@@ -17,8 +17,6 @@ export const productsApi = createApi({
           return [...acc, [key, value]];
         }, [] as any);
 
-        console.log(Object.fromEntries(qs));
-
         return {
           url: "/product",
           params: Object.fromEntries(qs),
