@@ -26,13 +26,9 @@ const ProductCard: FC<TProductCardProps> = ({ data }) => {
 
   const isSelected = watches.findIndex((w) => w.id === data.id) > -1;
 
-  console.log(
-    isSelected,
-    watches.findIndex((w) => w.id === data.id)
-  );
-
   const watchHandler = (productId: string) => {
     if (!user.isAuth) {
+      alert("To watch this product you need to authorize");
       return;
     }
 

@@ -7,6 +7,13 @@ export type TGetProducts = Partial<{
   tags: string[];
 }>;
 
+export type TFilters = {
+  price: {
+    min: number;
+    max: number;
+  };
+};
+
 export type TProduct = {
   id: string;
   description: string;

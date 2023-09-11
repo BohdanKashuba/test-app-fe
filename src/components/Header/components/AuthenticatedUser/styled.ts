@@ -67,8 +67,29 @@ const WatchesButton = styled("button")<{ value: number }>`
   }
 `;
 
+export const LogoutButton = styled("button")`
+  background-color: transparent;
+
+  border: 1px solid ${({ theme }) => theme.colors.error[60]};
+  border-radius: 4px;
+
+  color: ${({ theme }) => theme.colors.error[60]};
+
+  padding: 8px 12px;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+
+  cursor: pointer;
+`;
+
 const WatchesWrapper = styled("div")``;
 
-const Styled = { Wrapper, Avatar, WatchesButton, WatchesWrapper };
+const Styled = { Wrapper, Avatar, WatchesButton, WatchesWrapper, LogoutButton };
 
 export default Styled;

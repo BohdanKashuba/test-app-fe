@@ -33,7 +33,7 @@ const RangeSlider: FC<TRangeSliderProps> = ({
               >
                 <span>{tooltipPrefix}</span>
                 <span>
-                  {Math.floor(
+                  {Math.ceil(
                     max *
                       ((renderProps.props as TRenderProps)["aria-valuenow"] /
                         100)
@@ -61,8 +61,8 @@ const RangeSlider: FC<TRangeSliderProps> = ({
         onAfterChange={(vals) => {
           if (Array.isArray(vals)) {
             onChange([
-              Math.floor((vals[0] / 100) * max),
-              Math.floor((vals[1] / 100) * max),
+              Math.ceil((vals[0] / 100) * max),
+              Math.ceil((vals[1] / 100) * max),
             ]);
           }
         }}

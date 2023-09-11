@@ -1,4 +1,10 @@
-import React, { ChangeEvent, FC, useCallback, useState } from "react";
+import React, {
+  ChangeEvent,
+  FC,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 import Styled from "./styled";
 import Image from "../Image";
 import Logo from "../../assets/images/logo.png";
@@ -18,6 +24,12 @@ const Header: FC = () => {
   const isAuth = useAppSelector(userIsAuthSelector);
 
   const [open, setOpen] = useState<TAuthMethod>();
+
+  useEffect(() => {
+    if (isAuth) {
+      setOpen(undefined);
+    }
+  }, [isAuth]);
 
   const onClose = useCallback(() => setOpen(undefined), [setOpen]);
   const onOpen = useCallback(

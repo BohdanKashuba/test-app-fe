@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Styled from "./styled";
-import { useGetAllQuery } from "../../../../../../store/api/products";
+import { useGetAllProductsQuery } from "../../../../../../store/api/products";
 import ProductCard from "../ProductCard";
 import { useAppSelector } from "../../../../../../store/hooks";
 import { filterSelector } from "../../../../../../store/selectors";
@@ -11,7 +11,7 @@ const ProductsList: FC = () => {
 
   const debouncedKeywords = useDebounce(filters.keywords, 300);
 
-  const { data, isLoading } = useGetAllQuery({
+  const { data, isLoading } = useGetAllProductsQuery({
     priceEnd: filters.price.end,
     priceStart: filters.price.start,
     rate: filters.rate,
@@ -26,9 +26,11 @@ const ProductsList: FC = () => {
 
   return (
     <Styled.Wrapper>
-      {data?.map((product) => (
-        <ProductCard key={product.id} data={product} />
-      ))}
+      {data?.length ? (
+        data?.map((product) => <ProductCard key={product.id} data={product} />)
+      ) : (
+        <span>Products list is empty for now</span>
+      )}
     </Styled.Wrapper>
   );
 };

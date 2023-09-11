@@ -4,7 +4,7 @@ import {
   TLogin,
   TSignUp,
 } from "../../types/store/api/auth.type";
-import { setUser } from "../slices/user.slice";
+import { resetUser, setUser } from "../slices/user.slice";
 
 export const authApi = createApi({
   reducerPath: "authApi",
@@ -56,7 +56,25 @@ export const authApi = createApi({
         } catch {}
       },
     }),
+    logout: builder.mutation<void, void>({
+      query: () => ({
+        url: "/logout",
+        method: "POST",
+      }),
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        try {
+          await queryFulfilled;
+          dispatch(resetUser());
+          localStorage.removeItem("access-token");
+        } catch {}
+      },
+    }),
   }),
 });
 
-export const { useLoginMutation, useRefreshQuery, useSignUpMutation } = authApi;
+export const {
+  useLoginMutation,
+  useRefreshQuery,
+  useSignUpMutation,
+  useLogoutMutation,
+} = authApi;

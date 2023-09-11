@@ -1,5 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { TGetProducts, TProduct } from "../../types/store/api/products.type";
+import {
+  TFilters,
+  TGetProducts,
+  TProduct,
+} from "../../types/store/api/products.type";
 
 export const productsApi = createApi({
   reducerPath: "productsApi",
@@ -7,7 +11,7 @@ export const productsApi = createApi({
     baseUrl: process.env.REACT_APP_API_URL + "/product",
   }),
   endpoints: (builder) => ({
-    getAll: builder.query<TProduct[], TGetProducts>({
+    getAllProducts: builder.query<TProduct[], TGetProducts>({
       query: (params?: TGetProducts) => {
         const qs = Object.entries(params ?? {}).reduce((acc, [key, value]) => {
           if (Array.isArray(value)) {
@@ -23,7 +27,12 @@ export const productsApi = createApi({
         };
       },
     }),
+    getFilters: builder.query<TFilters, void>({
+      query: () => ({
+        url: "/filters",
+      }),
+    }),
   }),
 });
 
-export const { useGetAllQuery } = productsApi;
+export const { useGetAllProductsQuery, useGetFiltersQuery } = productsApi;
