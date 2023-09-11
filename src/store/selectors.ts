@@ -6,3 +6,5 @@ export const filterSelector = (state: TRootState) => state.filterSlice;
 export const userSelector = (state: TRootState) => state.userSlice as TUser;
 
 export const userIsAuthSelector = (state: TRootState) => state.userSlice.isAuth;
+
+export const watchesSelector = (state: TRootState) => state.watchesSlice;

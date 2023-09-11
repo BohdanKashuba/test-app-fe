@@ -4,7 +4,7 @@ import { TGetProducts, TProduct } from "../../types/store/api/products.type";
 export const productsApi = createApi({
   reducerPath: "productsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_URL,
+    baseUrl: process.env.REACT_APP_API_URL + "/product",
   }),
   endpoints: (builder) => ({
     getAll: builder.query<TProduct[], TGetProducts>({
@@ -18,7 +18,7 @@ export const productsApi = createApi({
         }, [] as any);
 
         return {
-          url: "/product",
+          url: "",
           params: Object.fromEntries(qs),
         };
       },

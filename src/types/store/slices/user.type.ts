@@ -4,7 +4,7 @@ export type TUserData = {
   email: string;
 };
 
-type TAuthUser = {
+export type TAuthUser = {
   isAuth: true;
 } & TUserData;
 

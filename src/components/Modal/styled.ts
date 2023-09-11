@@ -25,6 +25,13 @@ const Container = styled("div")`
   border-radius: 8px;
 `;
 
+const Content = styled("div")`
+  height: 50vh;
+
+  overflow: hidden;
+  overflow-y: auto;
+`;
+
 const Heading = styled("div")`
   display: flex;
   align-items: center;
@@ -50,6 +57,6 @@ const CloseButton = styled("button")`
   cursor: pointer;
 `;
 
-const Styled = { Wrapper, Container, Heading, CloseButton };
+const Styled = { Wrapper, Container, Heading, CloseButton, Content };
 
 export default Styled;

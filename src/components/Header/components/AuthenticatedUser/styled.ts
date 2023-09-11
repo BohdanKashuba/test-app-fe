@@ -67,6 +67,8 @@ const WatchesButton = styled("button")<{ value: number }>`
   }
 `;
 
-const Styled = { Wrapper, Avatar, WatchesButton };
+const WatchesWrapper = styled("div")``;
+
+const Styled = { Wrapper, Avatar, WatchesButton, WatchesWrapper };
 
 export default Styled;

@@ -77,6 +77,7 @@ const SignUpButton = styled("button")`
   &:hover {
     color: ${({ theme }) => theme.colors.primary[70]};
     border: 1px solid ${({ theme }) => theme.colors.primary[70]};
+    background-color: transparent;
   }
 `;
 

@@ -53,13 +53,17 @@ const RateWrapper = styled("div")`
   margin-top: 4px;
 `;
 
-const WatchButton = styled("button")`
+const WatchButton = styled("button")<{ selected: boolean }>`
   background-color: transparent;
 
   border: 1px solid ${({ theme }) => theme.colors.primary[70]};
   border-radius: 4px;
 
-  color: ${({ theme }) => theme.colors.primary[70]};
+  color: ${({ theme, selected }) =>
+    selected ? theme.colors.basic.white : theme.colors.primary[70]};
+
+  background-color: ${({ theme, selected }) =>
+    selected ? theme.colors.primary[70] : theme.colors.basic.white};
 
   padding: 4px 12px 4px 8px;
 
