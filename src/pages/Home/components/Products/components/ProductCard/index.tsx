@@ -45,7 +45,9 @@ const ProductCard: FC<TProductCardProps> = ({ data }) => {
 
   return (
     <Styled.Wrapper>
-      <Styled.Image src={process.env.REACT_APP_API_URL + "/" + data.image} />
+      <Styled.Image
+        src={process.env.REACT_APP_API_URL + "/file/" + data.imageId}
+      />
       <Styled.Title>{data.name}</Styled.Title>
       <Styled.Price>${parseFloat(data.price).toFixed(2)}</Styled.Price>
       <Styled.Description>{data.description}</Styled.Description>
