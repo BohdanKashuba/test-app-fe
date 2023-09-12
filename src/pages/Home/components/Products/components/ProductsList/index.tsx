@@ -11,7 +11,7 @@ const ProductsList: FC = () => {
 
   const debouncedKeywords = useDebounce(filters.keywords, 300);
 
-  const { data, isLoading } = useGetAllProductsQuery({
+  const { data, isLoading, isFetching } = useGetAllProductsQuery({
     priceEnd: filters.price.end,
     priceStart: filters.price.start,
     rate: filters.rate,
@@ -20,8 +20,8 @@ const ProductsList: FC = () => {
     tags: filters.tags,
   });
 
-  if (isLoading) {
-    return <div>Loading</div>;
+  if (isLoading || isFetching) {
+    return <div>Loading...</div>;
   }
 
   return (

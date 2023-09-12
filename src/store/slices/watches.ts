@@ -6,7 +6,8 @@ export const watchesSlice = createSlice({
   initialState: [] as TWatch["watches"],
   reducers: {
     setWatches: (state, action) => action.payload,
+    resetWatches: () => [],
   },
 });
 
-export const { setWatches } = watchesSlice.actions;
+export const { setWatches, resetWatches } = watchesSlice.actions;

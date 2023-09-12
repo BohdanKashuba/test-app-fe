@@ -5,6 +5,7 @@ import {
   TSignUp,
 } from "../../types/store/api/auth.type";
 import { resetUser, setUser } from "../slices/user.slice";
+import { resetWatches } from "../slices/watches";
 
 export const authApi = createApi({
   reducerPath: "authApi",
@@ -65,6 +66,7 @@ export const authApi = createApi({
         try {
           await queryFulfilled;
           dispatch(resetUser());
+          dispatch(resetWatches());
           localStorage.removeItem("access-token");
         } catch {}
       },

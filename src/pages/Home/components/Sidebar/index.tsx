@@ -27,7 +27,7 @@ const Sidebar: FC = () => {
   );
 
   if (isLoading) {
-    return null;
+    return <span>Filters loading...</span>;
   }
 
   return (

@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import RootImage from "../../../../../../components/Image";
 
 const Wrapper = styled("div")`
+  width: 228px;
+
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -44,6 +46,8 @@ const Container = styled("div")`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  margin-block: auto 0;
 `;
 
 const RateWrapper = styled("div")`

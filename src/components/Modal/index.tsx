@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, useRef } from "react";
+import React, { FC, PropsWithChildren, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import Styled from "./styled";
 import { AiOutlineClose } from "react-icons/ai";
@@ -14,6 +14,14 @@ const Modal: FC<TModalProps> = ({ open, onClose, title, children }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useOnClickOutside(ref, onClose);
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [open]);
 
   return createPortal(
     open && (
